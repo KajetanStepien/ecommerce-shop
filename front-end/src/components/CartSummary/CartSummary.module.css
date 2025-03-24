@@ -1,0 +1,41 @@
+.cartSummary {
+  width: 40%;
+}
+
+.cartSummary h2 {
+  margin-top: 1rem;
+  border-bottom: 1px solid var(--color-text-grey);
+  padding-bottom: 1rem;
+}
+
+.cartSummary div p {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+}
+
+.cartSummary button {
+  border: none;
+  background: none;
+  width: 100%;
+  background-color: var(--color-text-default);
+  color: white;
+  padding: 1rem 0;
+  margin: 1rem 0;
+}
+
+.carSummary button:hover {
+  cursor: pointer;
+}
+
+.boldParagraph {
+  font-weight: 700;
+}
+
+.divDisclaimer {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--color-grey);
+  font-weight: 700;
+  padding: 1rem;
+}
