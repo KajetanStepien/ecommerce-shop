@@ -8,7 +8,7 @@ export function MainMenu() {
       {GENDERS.map((category) => {
         return (
           <li key={category.path}>
-            <NavLink to={category.path}>{category.categoryName}</NavLink>
+            <NavLink to={`/${category.path}`}>{category.categoryName}</NavLink>
           </li>
         );
       })}
