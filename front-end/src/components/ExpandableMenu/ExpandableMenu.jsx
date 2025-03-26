@@ -21,34 +21,30 @@ export function ExpandableMenu() {
   }
 
   return (
-    <div className={styles.expandableMenu}>
+    <ul className={styles.expandableMenu}>
       <span>Kobieta</span>
       {CATEGORIES.map((category, index) => {
         return (
-          <>
-            <button
-              onClick={() => handleExpand(index)}
-              key={category.categoryName}
-            >
+          <li key={category.categoryName}>
+            <NavLink onClick={() => handleExpand(index)} to={category.path}>
               {category.categoryName} <img src={iconSelector(index)} alt="" />
-            </button>
+            </NavLink>
             {isOpen[index] && (
-              <div className={styles.additionalOptions}>
+              <ul className={styles.additionalOptions}>
                 {category.subCategories.map((subCategory) => {
                   return (
-                    <NavLink
-                      to={`${category.path}/${subCategory.path}`}
-                      key={subCategory.categoryName}
-                    >
-                      {subCategory.categoryName}
-                    </NavLink>
+                    <li key={subCategory.categoryName}>
+                      <NavLink to={subCategory.path}>
+                        {subCategory.categoryName}
+                      </NavLink>
+                    </li>
                   );
                 })}
-              </div>
+              </ul>
             )}
-          </>
+          </li>
         );
       })}
-    </div>
+    </ul>
   );
 }

@@ -86,7 +86,7 @@ export function MainPage() {
   return (
     <Layout>
       <Hero heroImg={COVER_PHOTO} />
-      <Bestsellers products={PRODUCTS} />
+      <Bestsellers headerText="Sprawdź nasze bestsellery" products={PRODUCTS} />
     </Layout>
   );
 }
