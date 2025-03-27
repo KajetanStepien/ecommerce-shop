@@ -1,0 +1,23 @@
+.bigPhoto {
+  width: 500px;
+  height: 700px;
+}
+
+.photosList {
+  margin-right: 1rem;
+}
+
+.photosList img {
+  width: 85px;
+  height: 120px;
+  margin-bottom: 1rem;
+}
+
+.photosList img:hover {
+  border: 2px solid black;
+  cursor: pointer;
+}
+
+.activePhoto {
+  border: 2px solid black;
+}
