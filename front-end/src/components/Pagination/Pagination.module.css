@@ -1,0 +1,12 @@
+.pagination {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  color: var(--color-text-default);
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.pagination li {
+  cursor: pointer;
+}

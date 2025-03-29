@@ -2,7 +2,7 @@
   border: none;
   background: none;
   width: 100%;
-  padding: 1rem 0;
+  padding: 1rem;
   background-color: var(--color-theme-main);
   color: var(--color-white);
   text-transform: uppercase;
@@ -11,4 +11,8 @@
   font-family: var(--font-family-default);
 
   cursor: pointer;
+}
+
+.black {
+  background-color: var(--color-text-default);
 }

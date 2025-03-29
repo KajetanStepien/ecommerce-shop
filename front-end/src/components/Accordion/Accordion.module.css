@@ -1,0 +1,18 @@
+.expandableMenu {
+  display: flex;
+  flex-direction: column;
+}
+
+.expandableMenu li div {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--color-text-default);
+  cursor: pointer;
+}
+
+.expandableMenu li p {
+  margin: 0.5rem 0;
+  font-weight: 400;
+}

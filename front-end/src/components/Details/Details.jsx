@@ -1,11 +1,40 @@
 import { FullWidthButton } from "../../components/FullWidthButton/FullWidthButton";
+import styles from "../Details/Details.module.css";
+import CAR from "../../assets/car.svg";
+import RETURN from "../../assets/return.svg";
+import { Accordion } from "../Accordion/Accordion";
 
 export function Details({ product }) {
+  const accordionContent = [
+    {
+      title: "Opis produktu",
+      content: product.description,
+    },
+    {
+      title: "Wskazówki pielęgnacyjne",
+      content: product.maintenanceInfo,
+    },
+  ];
+
   return (
-    <div>
-      <h2>{product.brand}</h2>
-      <h3>{product.productName}</h3>
-      <p>{product.pricePLN}zł</p>
+    <div className={styles.contentWrapper}>
+      <div className={styles.infoWrapper}>
+        <h2>{product.brand}</h2>
+        <h3>{product.productName}</h3>
+        <p>{product.pricePLN}zł</p>
+      </div>
+      <FullWidthButton isBlack={true}>Dodaj do koszyka</FullWidthButton>
+      <ul className={styles.infoList}>
+        <li>
+          <img src={CAR} alt="" />
+          Dostawa do 24h
+        </li>
+        <li>
+          <img src={RETURN} alt="" />
+          Zwrot do 100 dni!
+        </li>
+      </ul>
+      <Accordion items={accordionContent} />
     </div>
   );
 }

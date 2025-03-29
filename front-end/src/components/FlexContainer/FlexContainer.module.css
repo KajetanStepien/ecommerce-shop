@@ -1,7 +1,8 @@
 .flexContainer {
   display: flex;
-  flex-direction: row;
+  gap: 1rem;
   width: 100%;
   max-width: 100rem;
   margin: 1rem 0;
+  align-items: flex-start;
 }
