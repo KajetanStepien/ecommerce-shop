@@ -1,7 +1,6 @@
 .cartProductsWrapper {
   background-color: var(--color-grey);
   padding: 1rem;
-  margin: 1rem 0;
 }
 
 .cartProductsWrapper h2 {

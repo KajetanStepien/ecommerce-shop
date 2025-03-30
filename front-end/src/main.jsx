@@ -8,27 +8,32 @@ import { Favourites } from "./views/Favourites/Favourites.jsx";
 import { Cart } from "./views/Cart/Cart.jsx";
 import { ProductsList } from "./views/ProductsList/ProductsList.jsx";
 import { ProductDetails } from "./views/ProductDetails/ProductDetails.jsx";
+import { Layout } from "./components/Layout/Layout.jsx";
+import { mainPageLoader } from "./api/mainPageLoader.js";
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <MainPage />,
-  },
-  {
-    path: "/favourites",
-    element: <Favourites />,
-  },
-  {
-    path: "/cart",
-    element: <Cart />,
-  },
-  {
-    path: "/products",
-    element: <ProductsList />,
-  },
-  {
-    path: "/productdetails",
-    element: <ProductDetails />,
+    path: "",
+    element: <Layout />,
+    children: [
+      {
+        path: "/favourites",
+        element: <Favourites />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
+      {
+        path: "/:gender?",
+        element: <MainPage />,
+        loader: mainPageLoader,
+      },
+      {
+        path: "/:gender/:category",
+        element: <ProductsList />,
+      },
+    ],
   },
 ]);
 

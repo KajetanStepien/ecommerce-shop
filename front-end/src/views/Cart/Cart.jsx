@@ -45,11 +45,9 @@ export function Cart() {
     },
   ];
   return (
-    <Layout>
-      <FlexContainer>
-        <CartProductsList cartProducts={cartProducts} />
-        <CartSummary cartProducts={cartProducts} />
-      </FlexContainer>
-    </Layout>
+    <FlexContainer>
+      <CartProductsList cartProducts={cartProducts} />
+      <CartSummary cartProducts={cartProducts} />
+    </FlexContainer>
   );
 }

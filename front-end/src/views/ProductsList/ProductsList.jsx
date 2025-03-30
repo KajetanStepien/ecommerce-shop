@@ -1,5 +1,4 @@
 import { ExpandableMenu } from "../../components/ExpandableMenu/ExpandableMenu";
-import { Layout } from "../../components/Layout/Layout";
 import { FlexContainer } from "../../components/FlexContainer/FlexContainer";
 import { Breadcrumbs } from "../../components/Breadcrumbs/Breadcrumbs";
 import { Bestsellers } from "../../components/Bestsellers/Bestsellers";
@@ -161,15 +160,13 @@ export function ProductsList() {
     },
   ];
   return (
-    <Layout>
-      <FlexContainer>
-        <ExpandableMenu />
-        <div>
-          <Breadcrumbs />
-          <Bestsellers products={products} headerText="Swetry" />
-          <Pagination numberOfPages={5} />
-        </div>
-      </FlexContainer>
-    </Layout>
+    <FlexContainer>
+      <ExpandableMenu />
+      <div>
+        <Breadcrumbs />
+        <Bestsellers products={products} headerText="Swetry" />
+        <Pagination numberOfPages={5} />
+      </div>
+    </FlexContainer>
   );
 }

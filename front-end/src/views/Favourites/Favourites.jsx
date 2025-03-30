@@ -43,9 +43,5 @@ export function Favourites() {
     },
   ];
 
-  return (
-    <Layout>
-      <FavouritesList products={favourites} />
-    </Layout>
-  );
+  return <FavouritesList products={favourites} />;
 }
