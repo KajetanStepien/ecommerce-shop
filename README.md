@@ -32,7 +32,7 @@ This project is **in progress**, and not all functionalities are available yet. 
 ## 🚀 Local Installation
 ### 1️⃣ Clone the repository:
 ```bash
-git clone https://github.com/YourRepository/ecommerce-shop.git
+git clone https://github.com/KajetanStepien/ecommerce-shop.git
 cd ecommerce-shop
 ```
 
