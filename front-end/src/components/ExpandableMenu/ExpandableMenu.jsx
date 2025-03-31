@@ -40,7 +40,9 @@ export function ExpandableMenu() {
                 {category.subCategories.map((subCategory) => {
                   return (
                     <li key={subCategory.categoryName}>
-                      <NavLink to={`${subCategory.path}`}>
+                      <NavLink
+                        to={`/${params.gender}/${category.path}/${subCategory.path}`}
+                      >
                         {subCategory.categoryName}
                       </NavLink>
                     </li>
