@@ -29,6 +29,7 @@ export const CATEGORIES = [
     subCategories: [
       { categoryName: "Eleganckie", path: "eleganckie" },
       { categoryName: "Sportowe", path: "sportowe" },
+      { categoryName: "Sneakersy", path: "sneakersy" },
     ],
   },
   {

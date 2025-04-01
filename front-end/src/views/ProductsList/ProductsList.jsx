@@ -5,9 +5,11 @@ import { Bestsellers } from "../../components/Bestsellers/Bestsellers";
 import { Pagination } from "../../components/Pagination/Pagination";
 import { useLoaderData, useParams } from "react-router-dom";
 import { CATEGORIES } from "../../constants/categories";
+import styles from "./ProductsList.module.css";
 
 export function ProductsList() {
-  const products = useLoaderData();
+  const { products, numberOfPages } = useLoaderData();
+  console.log(products);
   const params = useParams();
   const foundCategory = CATEGORIES.find((c) => c.path === params.category);
 
@@ -20,7 +22,7 @@ export function ProductsList() {
   return (
     <FlexContainer>
       <ExpandableMenu />
-      <div>
+      <div className={styles.contentWrapper}>
         <Breadcrumbs />
         <Bestsellers
           products={products}
@@ -30,7 +32,7 @@ export function ProductsList() {
               : foundCategory.categoryName
           }
         />
-        <Pagination numberOfPages={5} />
+        <Pagination numberOfPages={numberOfPages} />
       </div>
     </FlexContainer>
   );

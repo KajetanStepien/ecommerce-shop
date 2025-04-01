@@ -11,6 +11,8 @@ import { ProductDetails } from "./views/ProductDetails/ProductDetails.jsx";
 import { Layout } from "./components/Layout/Layout.jsx";
 import { mainPageLoader } from "./api/mainPageLoader.js";
 import { productListLoader } from "./api/productListLoader.js";
+import { productDetailsLoader } from "./api/productDetailsLoader.js";
+import { favouritesLoader } from "./api/favouritesLoader.js";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +22,7 @@ const router = createBrowserRouter([
       {
         path: "/favourites",
         element: <Favourites />,
+        loader: favouritesLoader,
       },
       {
         path: "/cart",
@@ -34,6 +37,11 @@ const router = createBrowserRouter([
         path: "/:gender/:category/:subcategory?",
         element: <ProductsList />,
         loader: productListLoader,
+      },
+      {
+        path: "/:gender/:category/:subcategory/:productId",
+        element: <ProductDetails />,
+        loader: productDetailsLoader,
       },
     ],
   },

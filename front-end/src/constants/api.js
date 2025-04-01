@@ -4,6 +4,12 @@ export const PATH_TO_ENDPOINT_MAPPING = {
   dziecko: "children",
 };
 
+export const ENDPOINT_TO_PATH_MAPPING = {
+  women: "kobieta",
+  men: "mezczyzna",
+  children: "dziecko",
+};
+
 export const PATH_TO_GENDER_NAME = {
   kobieta: "Kobieta",
   mezczyzna: "Mężczyzna",
