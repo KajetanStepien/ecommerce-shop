@@ -12,6 +12,10 @@
   margin: 0.5rem 0;
 }
 
+.product button {
+  border: none;
+}
+
 .product p {
   color: var(--color-price);
   margin-bottom: 1rem;
