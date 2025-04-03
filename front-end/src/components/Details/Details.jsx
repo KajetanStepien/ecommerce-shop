@@ -3,8 +3,12 @@ import styles from "../Details/Details.module.css";
 import CAR from "../../assets/car.svg";
 import RETURN from "../../assets/return.svg";
 import { Accordion } from "../Accordion/Accordion";
+import { useContext } from "react";
+import { CurrencyContext } from "../../contexts/CurrencyContext";
+import { CURRIENCIES } from "../../constants/currencies";
 
 export function Details({ product }) {
+  const [currency] = useContext(CurrencyContext);
   const accordionContent = [
     {
       title: "Opis produktu",
@@ -21,7 +25,11 @@ export function Details({ product }) {
       <div className={styles.infoWrapper}>
         <h2>{product.brand}</h2>
         <h3>{product.productName}</h3>
-        <p>{product.pricePLN}zł</p>
+        <p>
+          {currency === CURRIENCIES.PLN
+            ? product.pricePLN + "zł"
+            : product.priceUSD + "$"}
+        </p>
       </div>
       <FullWidthButton isBlack={true}>Dodaj do koszyka</FullWidthButton>
       <ul className={styles.infoList}>

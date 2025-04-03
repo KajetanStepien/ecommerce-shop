@@ -1,11 +1,23 @@
 import styles from "./CartSummary.module.css";
 import CAR from "../../assets/car.svg";
+import { useContext } from "react";
+import { CurrencyContext } from "../../contexts/CurrencyContext";
+import { CURRIENCIES } from "../../constants/currencies";
+
 export function CartSummary({ cartProducts }) {
-  const deliveryFee = 49;
-  const minFreeDeliveryPrice = 500;
+  const [currency] = useContext(CurrencyContext);
+
+  const currencySymbol = currency === CURRIENCIES.PLN ? "zł" : "$";
+
+  const deliveryFee = currency === CURRIENCIES.PLN ? 20 : 5;
+  const minFreeDeliveryPrice = currency === CURRIENCIES.PLN ? 500 : 200;
 
   let finalPrice = 0;
-  cartProducts.forEach((product) => (finalPrice += product.pricePLN));
+  cartProducts.forEach(
+    (product) =>
+      (finalPrice +=
+        currency === CURRIENCIES.PLN ? product.pricePLN : product.priceUSD)
+  );
 
   return (
     <div className={styles.cartSummary}>
@@ -13,23 +25,31 @@ export function CartSummary({ cartProducts }) {
       <div>
         <p>
           <span>Wartość produktów:</span>
-          <span>{finalPrice} zł</span>
+          <span>
+            {finalPrice} {currencySymbol}
+          </span>
         </p>
         <p>
           <span>Koszt dostawy:</span>
-          <span>{finalPrice >= 500 ? 0 : deliveryFee} zł</span>
+          <span>
+            {finalPrice >= minFreeDeliveryPrice ? 0 : deliveryFee}{" "}
+            {currencySymbol}
+          </span>
         </p>
         <p className={styles.boldParagraph}>
           <span>Do zapłaty:</span>
           <span>
-            {finalPrice >= 500 ? finalPrice : finalPrice + deliveryFee} zł
+            {finalPrice >= minFreeDeliveryPrice
+              ? finalPrice
+              : finalPrice + deliveryFee}{" "}
+            {currencySymbol}
           </span>
         </p>
       </div>
       <button>DO KASY</button>
       <div className={styles.divDisclaimer}>
         <img src={CAR}></img>
-        Darmowa dostawa od {minFreeDeliveryPrice} zł
+        Darmowa dostawa od {minFreeDeliveryPrice} {currencySymbol}
       </div>
     </div>
   );

@@ -14,11 +14,16 @@ import { productListLoader } from "./api/productListLoader.js";
 import { productDetailsLoader } from "./api/productDetailsLoader.js";
 import { favouritesLoader } from "./api/favouritesLoader.js";
 import { handleAddToFavourites } from "./api/handleAddToFavourites.js";
+import { deleteFavouriteAction } from "./api/deleteFavouriteAction.js";
 
 const router = createBrowserRouter([
   {
     path: "/add-to-favourites/:productId",
     action: handleAddToFavourites,
+  },
+  {
+    path: "/delete-from-favourites/:favouriteId",
+    action: deleteFavouriteAction,
   },
   {
     path: "",

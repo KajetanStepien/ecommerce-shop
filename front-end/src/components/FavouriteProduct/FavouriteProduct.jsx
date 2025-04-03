@@ -1,7 +1,12 @@
 import styles from "../FavouriteProduct/FavouriteProduct.module.css";
 import REMOVE from "../../assets/remove.svg";
 import CART from "../../assets/Vector.svg";
-export function FavouriteProduct({ product }) {
+import { useFetcher } from "react-router-dom";
+import { Price } from "../Price/Price";
+
+export function FavouriteProduct({ favourite }) {
+  const product = favourite.product;
+  const { Form } = useFetcher();
   return (
     <div className={styles.contentWrapper}>
       <img src={product.photos[0]} />
@@ -10,17 +15,24 @@ export function FavouriteProduct({ product }) {
           <h3>
             {product.brand} {product.productName}
           </h3>
-          <p>{product.pricePLN}zł</p>
+          <p>
+            <Price product={favourite.product} />
+          </p>
         </div>
         <p className={styles.priceRow}>
           <span>Cena: </span>
-          {product.pricePLN}zł
+          <Price product={favourite.product} />
         </p>
         <div className={styles.buttonRow}>
-          <button>
-            <img src={REMOVE} />
-            Usuń z ulubionych
-          </button>
+          <Form
+            method="delete"
+            action={`/delete-from-favourites/${favourite.id}`}
+          >
+            <button>
+              <img src={REMOVE} />
+              Usuń z ulubionych
+            </button>
+          </Form>
           <button>
             <img src={CART} />
             Dodaj do koszyka
