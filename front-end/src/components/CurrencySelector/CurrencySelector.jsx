@@ -7,6 +7,7 @@ export function CurrencySelector() {
   const [currency, setCurrency] = useContext(CurrencyContext);
   return (
     <select
+      value={currency}
       onChange={(e) => {
         setCurrency(e.currentTarget.value);
       }}

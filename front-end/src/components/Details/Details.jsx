@@ -6,9 +6,11 @@ import { Accordion } from "../Accordion/Accordion";
 import { useContext } from "react";
 import { CurrencyContext } from "../../contexts/CurrencyContext";
 import { CURRIENCIES } from "../../constants/currencies";
+import { CartContext } from "../../contexts/CartContext";
 
 export function Details({ product }) {
   const [currency] = useContext(CurrencyContext);
+  const [, addProductToCart] = useContext(CartContext);
   const accordionContent = [
     {
       title: "Opis produktu",
@@ -31,7 +33,14 @@ export function Details({ product }) {
             : product.priceUSD + "$"}
         </p>
       </div>
-      <FullWidthButton isBlack={true}>Dodaj do koszyka</FullWidthButton>
+      <FullWidthButton
+        onClick={() => {
+          addProductToCart(product);
+        }}
+        isBlack={true}
+      >
+        Dodaj do koszyka
+      </FullWidthButton>
       <ul className={styles.infoList}>
         <li>
           <img src={CAR} alt="" />
